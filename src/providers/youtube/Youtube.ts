@@ -66,8 +66,10 @@ class Youtube extends Plugin<Track> {
 
         const opusFormat = info.formats.find(getOpusFormat)
         if (opusFormat) {
+            console.log("Returning opus format")
             return new Resource({
                 track,
+                source: ytdl.downloadFromInfo(info, { format: opusFormat }),
                 demuxer: new opus.WebmDemuxer(),
                 decoder: Resource.createOpusDecoder()
             })
@@ -75,14 +77,16 @@ class Youtube extends Plugin<Track> {
 
         const otherFormat = getOtherFormat(info.formats, info.videoDetails.isLiveContent)
         if (otherFormat) {
+            console.log("Returning available format")
             return new Resource({
                 track,
+                source: ytdl.downloadFromInfo(info, { format: otherFormat }),
                 decoder: new FFmpeg({ args: FFMPEG_ARGS })
             })
         }
     }
 
-    public search(options: SearchOptions) {
+    public search(options: SearchOptions): Search<Track> {
         if ("sourceId" in options) {
             return new Search(this, this.searchVideo(options.sourceId))
         }
@@ -123,3 +127,5 @@ class Youtube extends Plugin<Track> {
         }
     }
 }
+
+export default Youtube

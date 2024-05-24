@@ -12,9 +12,19 @@ class Search<T extends Track> {
     public readonly tracks: Array<T> = []
     public constructor(plugin: Plugin<T>, response: Promise<Result>) {
         this.plugin = plugin
-        this.#completeSignal = new Promise((res) => {
-            response.then(() => (this.onResultComplete.bind(this), res()))
-            response.catch(() => (this.onResultError.bind(this), res()))
+        this.#completeSignal = this.handlePromisedResult(response)
+    }
+
+    private handlePromisedResult(promise: Promise<Result>) {
+        return new Promise<void>(async (resolve) => {
+            const result = await promise.catch<Error>((err) => err)
+
+            if (result instanceof Error) {
+                this.onResultError(result)
+            } else {
+                this.onResultComplete(result)
+            }
+            resolve()
         })
     }
 

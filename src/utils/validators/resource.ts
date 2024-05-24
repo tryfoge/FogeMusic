@@ -1,11 +1,12 @@
 import { z } from "zod";
-import Cache from "../../cache/Cache";
 import { FFmpeg, opus, vorbis } from "prism-media";
 import Track from "../../structures/Track";
+import { Readable } from "stream";
 
 export const ResourceOptions = z.object(
     {
         // cache: z.instanceof(Cache),
+        source: z.instanceof(Readable),
         demuxer: z.optional(
             z.union(
                 [
