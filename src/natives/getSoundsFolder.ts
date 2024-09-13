@@ -1,4 +1,4 @@
-import { NativeFunction, Return } from "forgescript";
+import { NativeFunction, Return } from "@tryforge/forgescript";
 
 export default new NativeFunction({
     name: "$getSoundsFolder",

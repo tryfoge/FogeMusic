@@ -1,4 +1,4 @@
-import { ArgType, NativeFunction, Return } from "forgescript";
+import { ArgType, NativeFunction, Return } from "@tryforge/forgescript";
 
 export default new NativeFunction({
     name: "$defaultProvider",

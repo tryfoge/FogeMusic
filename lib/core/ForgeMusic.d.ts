@@ -1,4 +1,4 @@
-import { ForgeClient, ForgeExtension } from "forgescript";
+import { ForgeClient, ForgeExtension } from "@tryforge/forgescript";
 import { Providers, MusicManager } from "naoko-player";
 interface MusicExtensionOptions {
     soundsFolder?: string;

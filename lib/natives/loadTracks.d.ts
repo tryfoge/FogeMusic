@@ -1,4 +1,4 @@
-import { ArgType, NativeFunction } from "forgescript";
+import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import { enums } from "naoko-player";
 declare const _default: NativeFunction<[{
     name: string;

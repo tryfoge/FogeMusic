@@ -1,14 +1,22 @@
-# forge-music
-> A standard music extension library for forgescript 
+# ForgeMusic
+> Welcome to ForgeMusic, the official extension library for adding music playability features to your Discord applications using ForgeScript.
+
+## Features
+
+- **Track Queue System:** Manage and play tracks in a queue.
+- **Audio Player Controls:** Play, pause, stop, and seek through audio tracks.
+- **Music Events:** Handle events such as play, resume, pause, stop, and apply audio filters.
+- **Extensive Provider Support:** Integrate with a variety of music providers.
+- **FFMPEG Audio Filters:** Apply audio filters using FFMPEG.
 
 [![ForgeMusic](https://img.shields.io/github/package-json/v/tryforge/ForgeMusic/main?label=forge-music&color=5c16d4)](https://github.com/tryforgeForgeMusic/)
-[![forgescript](https://img.shields.io/github/package-json/v/tryforge/ForgeScript/main?label=forgescript&color=5c16d4)](https://github.com/tryforge/ForgeScript/)
+[![@tryforge/forgescript](https://img.shields.io/github/package-json/v/tryforge/ForgeScript/main?label=@tryforge/forgescript&color=5c16d4)](https://github.com/tryforge/ForgeScript/)
 [![Discord](https://img.shields.io/discord/739934735387721768?logo=discord)](https://discord.gg/hcJgjzPvqb)
 
 ## Usage
 You can install from github:
 ```bash
-npm install https://github.com/tryforge/ForgeMusic.git
+npm install https://github.com/tryfoge/ForgeMusic.git
 ```
 From Node.js Package Manager:
 ```bash
@@ -22,7 +30,7 @@ yarn add forge-music
 Add package to your client initialization
 ```js
 const { ForgeMusic } = require('forge-music');
-const { ForgeClient } = require('forgescript');
+const { ForgeClient } = require('@tryforge/forgescript');
 
 const client = new ForgeClient({
     // "GuildVoiceStates" is important for music
@@ -61,7 +69,7 @@ The `ForgeMusic` extension registers functions listed below:
 
 ## API
 ### ForgeMusic
-The extension which manages music handlers for forgescript
+The extension which manages music handlers for @tryforge/forgescript
 - `ForgeMusic.options` - The options that is provided to constructor
     - `soundsFolder` - The path to folder for sounds
 - `ForgeMusic.manager` - The music manager which manages tracks and audio players.
@@ -75,9 +83,38 @@ Provider can be custom created, and it is not limited to any service.
 
 Current providers is added within package:
 - `Providers.LocalProvider` - A local provider added from [![NaokoPlayer](https://img.shields.io/github/package-json/v/KairoKunazuki/NaokoPlayer/main?label=naoko-player&color=5c16d4)](https://github.com/KairoKunazuki/NaokoPlayer/)
+
 ## Roadmap
 The goal for future updates:
 - A track queue system
 - Audio player features for `filter`, `seek`, and etc
 - Music Events `playing`, `resumed`, `paused`, `stopped`, `filters`, and etc
 - Extensive Provider support.
+
+### Changelog
+
+**[1.0.0] - 2024-09-14**
+
+**Added:**
+- **Core Features:**
+  - Implemented a track queue system.
+  - Added audio player features including play, pause, stop, and seek.
+  - Introduced music events for play, resume, pause, stop, and filters.
+  - Extensive provider support added for integration with different music providers.
+  - Added support for FFMPEG audio filters.
+
+**Updated:**
+- **Track Queue System**
+- **Audio Player Features:** Advanced features such as filtering and seeking are done.
+- **Extensive Provider Support:** Further integrations and support for additional providers are done.
+- **API Groundwork:** Initial groundwork has started but requires further development.
+- **Abstract Classes Improvement:** Enhancement of abstract classes for developer experience is planned.
+- **Caching Resources:** Implemented a basic caching system, but additional improvements are anticipated.
+
+## Contributions
+
+|-|-|
+
+Developer|...|Contact
+RelevantZone|Made this extension and did cool things|[Github](https://github.com/RelevantZone)
+Clyders (Aditya)|Rewritten this extension and added cool features|[Github](https://github.com/Clyders)

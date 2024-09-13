@@ -1,4 +1,4 @@
-import { ArgType, NativeFunction, Return } from "forgescript";
+import { ArgType, NativeFunction, Return } from "@tryforge/forgescript";
 import { joinVoiceChannel } from "@discordjs/voice";
 import type { GuildChannel } from "discord.js";
 
