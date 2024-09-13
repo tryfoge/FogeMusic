@@ -113,8 +113,7 @@ The goal for future updates:
 
 ## Contributions
 
-|-|-|
-
-Developer|...|Contact
+Contributor | Contribution | Contact
+-|-|-
 RelevantZone|Made this extension and did cool things|[Github](https://github.com/RelevantZone)
-Clyders (Aditya)|Rewritten this extension and added cool features|[Github](https://github.com/Clyders)
+Clyders (Aditya)|Rewritten this extension and added cool features|[Discord](https://discord.com/users/903681538842054686) [Github](https://github.com/Clyders)
