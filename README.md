@@ -1,44 +1,52 @@
-# ForgeMusic
-> Welcome to ForgeMusic, the official extension library for adding music playability features to your Discord applications using ForgeScript.
+# 🎶 ForgeMusic
 
-## Features
+> **Welcome to ForgeMusic**, the official extension library that brings powerful music playability features to your Discord applications using [ForgeScript](https://github.com/tryforge/ForgeScript).
 
-- **Track Queue System:** Manage and play tracks in a queue.
-- **Audio Player Controls:** Play, pause, stop, and seek through audio tracks.
-- **Music Events:** Handle events such as play, resume, pause, stop, and apply audio filters.
-- **Extensive Provider Support:** Integrate with a variety of music providers.
-- **FFMPEG Audio Filters:** Apply audio filters using FFMPEG.
+![ForgeMusic](https://img.shields.io/github/package-json/v/tryforge/ForgeMusic/main?label=forge-music&color=5c16d4) ![ForgeScript](https://img.shields.io/github/package-json/v/tryforge/ForgeScript/main?label=@tryforge/forgescript&color=5c16d4) ![Discord](https://img.shields.io/discord/739934735387721768?logo=discord)
 
-[![ForgeMusic](https://img.shields.io/github/package-json/v/tryforge/ForgeMusic/main?label=forge-music&color=5c16d4)](https://github.com/tryforgeForgeMusic/)
-[![@tryforge/forgescript](https://img.shields.io/github/package-json/v/tryforge/ForgeScript/main?label=@tryforge/forgescript&color=5c16d4)](https://github.com/tryforge/ForgeScript/)
-[![Discord](https://img.shields.io/discord/739934735387721768?logo=discord)](https://discord.gg/hcJgjzPvqb)
+## 🌟 Features
 
-## Usage
-You can install from github:
+- **Track Queue System**: Seamlessly manage and play music tracks in a queue.
+- **Audio Player Controls**: Play, pause, stop, and seek through tracks.
+- **Music Events**: Listen and react to events like play, pause, resume, stop, and more.
+- **Extensive Provider Support**: Integrate with a variety of music platforms.
+- **FFMPEG Audio Filters**: Apply audio filters using FFMPEG for enhanced listening.
+
+---
+
+## 🚀 Installation
+
+You can install the package from GitHub or via Node's package manager:
+
+### From GitHub:
 ```bash
 npm install https://github.com/tryfoge/ForgeMusic.git
 ```
-From Node.js Package Manager:
+
+### From Node Package Manager (NPM/Yarn):
 ```bash
 # NPM
 npm install forge-music
-# YARN
+# Yarn
 yarn add forge-music
 ```
 
-## How to use
-Add package to your client initialization
+---
+
+## ⚙️ Usage
+
+To use `ForgeMusic` in your project, simply add it to your Discord client:
+
 ```js
 const { ForgeMusic } = require('forge-music');
 const { ForgeClient } = require('@tryforge/forgescript');
 
 const client = new ForgeClient({
-    // "GuildVoiceStates" is important for music
     intents: [
         "Guilds", 
         "GuildMessages", 
         "MessageContent", 
-        "GuildVoiceStates"
+        "GuildVoiceStates" // Important for music functionality
     ],
     extension: [
         new ForgeMusic({ soundsFolder: `${process.cwd()}/sounds` })
@@ -46,74 +54,88 @@ const client = new ForgeClient({
 });
 ```
 
-<br>
+> The `ForgeMusic` extension is exposed through `client.music`, and its functions are available in your bot's command structure.
 
-The `ForgeMusic` instantiated class is exposed in `client.music` and available as typings.
+---
 
-The `ForgeMusic` extension registers functions listed below:
-- `$vcJoin[voiceChannel]` - Connects to a voice channel
-    - `voiceChannel (Channel)` - The voice channel to establish connection
-- `$defaultProvider[providerName]` - Changes the default provider of current execution
-    - `providerName (String)` - The provider to use for searching tracks
-- `$getSoundsFolder` - Returns the `soundsFolder` from specified options in `ForgeMusic.options`
-- `$getTrackInfo[track encoded id;record key]` - Returns information about record key from track
-    - `track encoded id (String)` - The encoded id to get track from cache
-    - `record key (String)` - The key from object record to retreive information
-- `$loadTracks[query;loadType;providerName?]` - Search tracks from specified provider. Returns an array of `track encoded id`
-    - `query (String)` - The query to search for tracks
-    - `loadType (Enum: LoadResultType)` - The type to filter result. Enum: `Search`, `Track`, `Playlist`.
-- `$playTrack[track encoded id]` - Sends request to the Audio player to play track
-    - `track encoded id (String)` - The encoded id to get track from cache
-- `$playerStop` - Sends request to the Audio player to stop playing
+## 🎵 Available Commands
 
+### 1. **Join a Voice Channel**
+   - `$vcJoin[voiceChannel]`: Connects to a voice channel.
+     - `voiceChannel` (Channel) – The target voice channel.
 
-## API
-### ForgeMusic
-The extension which manages music handlers for @tryforge/forgescript
-- `ForgeMusic.options` - The options that is provided to constructor
-    - `soundsFolder` - The path to folder for sounds
-- `ForgeMusic.manager` - The music manager which manages tracks and audio players.
-    - `.manager is MusicManager` - The class manager from [![NaokoPlayer](https://img.shields.io/github/package-json/v/KairoKunazuki/NaokoPlayer/main?label=naoko-player&color=5c16d4)](https://github.com/KairoKunazuki/NaokoPlayer/)
-- `ForgeMusic.addProvider(Provider)` - Adds a provider to collecton
-    - `Provider is Providers.Provider` - The class provider from [![NaokoPlayer](https://img.shields.io/github/package-json/v/KairoKunazuki/NaokoPlayer/main?label=naoko-player&color=5c16d4)](https://github.com/KairoKunazuki/NaokoPlayer/)
+### 2. **Change Default Provider**
+   - `$defaultProvider[providerName]`: Sets the default music provider.
+     - `providerName` (String) – Name of the music provider.
 
-### Providers
-The provider which the service that serves tracks and audios. <br>
-Provider can be custom created, and it is not limited to any service.
+### 3. **Get Sounds Folder**
+   - `$getSoundsFolder`: Retrieves the `soundsFolder` specified in the options.
 
-Current providers is added within package:
-- `Providers.LocalProvider` - A local provider added from [![NaokoPlayer](https://img.shields.io/github/package-json/v/KairoKunazuki/NaokoPlayer/main?label=naoko-player&color=5c16d4)](https://github.com/KairoKunazuki/NaokoPlayer/)
+### 4. **Get Track Information**
+   - `$getTrackInfo[track encoded id;record key]`: Fetches track info.
+     - `track encoded id` (String) – The ID of the track from cache.
+     - `record key` (String) – The key to retrieve information from.
 
-## Roadmap
-The goal for future updates:
-- A track queue system
-- Audio player features for `filter`, `seek`, and etc
-- Music Events `playing`, `resumed`, `paused`, `stopped`, `filters`, and etc
-- Extensive Provider support.
+### 5. **Search for Tracks**
+   - `$loadTracks[query;loadType;providerName?]`: Search for tracks.
+     - `query` (String) – Your search query.
+     - `loadType` (Enum: LoadResultType) – Filter results by `Search`, `Track`, or `Playlist`.
 
-### Changelog
+### 6. **Play a Track**
+   - `$playTrack[track encoded id]`: Plays the selected track.
+     - `track encoded id` (String) – The track ID from cache.
 
-**[1.0.0] - 2024-09-14**
+### 7. **Stop Audio Player**
+   - `$playerStop`: Stops the current audio playback.
 
-**Added:**
-- **Core Features:**
-  - Implemented a track queue system.
-  - Added audio player features including play, pause, stop, and seek.
-  - Introduced music events for play, resume, pause, stop, and filters.
-  - Extensive provider support added for integration with different music providers.
-  - Added support for FFMPEG audio filters.
+---
 
-**Updated:**
-- **Track Queue System**
-- **Audio Player Features:** Advanced features such as filtering and seeking are done.
-- **Extensive Provider Support:** Further integrations and support for additional providers are done.
-- **API Groundwork:** Initial groundwork has started but requires further development.
-- **Abstract Classes Improvement:** Enhancement of abstract classes for developer experience is planned.
-- **Caching Resources:** Implemented a basic caching system, but additional improvements are anticipated.
+## 📚 API Overview
 
-## Contributions
+### `ForgeMusic`
 
-Contributor | Contribution | Contact
--|-|-
-RelevantZone|Made this extension and did cool things|[Github](https://github.com/RelevantZone)
-Clyders (Aditya)|Rewritten this extension and added cool features|[Discord](https://discord.com/users/903681538842054686) [Github](https://github.com/Clyders)
+- **`ForgeMusic.options`**: Configuration options for the extension.
+   - `soundsFolder`: Path to the sounds folder.
+  
+- **`ForgeMusic.manager`**: Manages tracks and audio players.
+  - The class manager comes from [NaokoPlayer](https://github.com/KairoKunazuki/NaokoPlayer).
+
+- **`ForgeMusic.addProvider(Provider)`**: Add custom providers to the collection.
+  - `Provider` is a class from [NaokoPlayer](https://github.com/KairoKunazuki/NaokoPlayer).
+
+---
+
+## 🛠️ Roadmap
+
+- **Track Queue System**: Improved queue management features.
+- **Advanced Audio Player Features**: Filter, seek, and more.
+- **Music Events**: Support for playback-related events.
+- **Enhanced Provider Support**: Integration with additional music platforms.
+- **Caching and Performance Enhancements**: Resource caching and performance tweaks.
+
+---
+
+## 🔄 Changelog
+
+### **Version [1.0.0] - 2024-09-14**
+
+#### Added:
+- Core track queue system.
+- Audio player controls: play, pause, stop, seek.
+- Music events for handling play, resume, pause, and stop actions.
+- Extensive provider support for various music services.
+- FFMPEG-based audio filters.
+
+#### Updated:
+- Advanced features like filtering and seeking.
+- Initial API groundwork laid for further development.
+- Improvements to abstract classes and resource caching.
+
+---
+
+## 💻 Contributions
+
+| Contributor      | Role                                     | Contact                                                                                      |
+|------------------|------------------------------------------|----------------------------------------------------------------------------------------------|
+| **RelevantZone** | Developer & Core Features                | [GitHub](https://github.com/RelevantZone)                                                    |
+| **Clyders**      | Developer & Feature Enhancements         | [GitHub](https://github.com/Clyders) \| [Discord](https://discord.com/users/903681538842054686) |
