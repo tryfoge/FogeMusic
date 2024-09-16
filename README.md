@@ -2,7 +2,7 @@
 
 > **Welcome to ForgeMusic**, the official extension library that brings powerful music playability features to your Discord applications using [ForgeScript](https://github.com/tryforge/ForgeScript).
 
-![ForgeMusic](https://img.shields.io/github/package-json/v/tryforge/ForgeMusic/main?label=forge-music&color=5c16d4) ![ForgeScript](https://img.shields.io/github/package-json/v/tryforge/ForgeScript/main?label=@tryforge/forgescript&color=5c16d4) ![Discord](https://img.shields.io/discord/739934735387721768?logo=discord)
+![ForgeMusic](https://img.shields.io/github/package-json/v/tryfoge/FogeMusic/main?label=forge-music&color=5c16d4) ![ForgeScript](https://img.shields.io/github/package-json/v/tryforge/ForgeScript/main?label=@tryforge/forgescript&color=5c16d4) ![Discord](https://img.shields.io/discord/739934735387721768?logo=discord)
 
 ## 🌟 Features
 

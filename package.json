@@ -19,6 +19,7 @@
     "@tryforge/forgescript": "^1.5.0",
     "discord.js": "^14.13.0",
     "naoko-player": "^0.0.1",
+    "opusscript": "^0.0.8",
     "python3": "^0.0.1"
   },
   "devDependencies": {
