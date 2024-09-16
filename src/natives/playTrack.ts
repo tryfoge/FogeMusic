@@ -1,4 +1,4 @@
-import { ArgType, NativeFunction, Return } from "@tryforge/forgescript";
+import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import { Providers } from "naoko-player";
 
 export default new NativeFunction({
@@ -22,6 +22,6 @@ export default new NativeFunction({
         const node = ctx.client.music.manager.getNode(ctx.guild.id, true);
         node.playTrack(track);
 
-        return Return.success(true);
+        return this.success(true);
     }
 });

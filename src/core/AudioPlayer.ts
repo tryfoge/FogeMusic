@@ -1,4 +1,4 @@
-import { MusicManager, Providers, Track } from "naoko-player";
+import { MusicManager, Providers } from "naoko-player";
 import { PassThrough } from "stream";
 import path from "path";
 import fs from "fs";

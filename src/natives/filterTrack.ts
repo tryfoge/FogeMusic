@@ -1,4 +1,4 @@
-import { NativeFunction, Return } from "@tryforge/forgescript";
+import { ArgType, NativeFunction } from "@tryforge/forgescript";
 
 export default new NativeFunction({
     name: "$filterTrack",
@@ -10,7 +10,7 @@ export default new NativeFunction({
         {
             name: "filter",
             description: "The audio filter to apply",
-            type: "string",
+            type: ArgType.String,
             rest: false,
             required: true
         }
@@ -19,8 +19,8 @@ export default new NativeFunction({
         const node = ctx.client.music.manager.getNode(ctx.guild.id, true);
         if (node) {
             node.applyFilter(filter);
-            return Return.success('Filter applied');
+            return this.success('Filter applied');
         }
-        return Return.error('No node found');
+        return this.error('No node found');
     }
 });

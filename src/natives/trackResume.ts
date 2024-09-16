@@ -9,8 +9,8 @@ export default new NativeFunction({
         const node = ctx.client.music.manager.getNode(ctx.guild.id, true);
         if (node) {
             node.resume();
-            return Return.success('Track resumed');
+            return this.success('Track resumed');
         }
-        return Return.error('No node found');
+        return this.error('No node found');
     }
 });

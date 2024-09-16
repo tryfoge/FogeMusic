@@ -1,4 +1,4 @@
-import { ArgType, NativeFunction, Return } from "@tryforge/forgescript";
+import { ArgType, NativeFunction } from "@tryforge/forgescript";
 
 export default new NativeFunction({
     name: "$defaultProvider",
@@ -17,6 +17,6 @@ export default new NativeFunction({
     ],
     async execute(ctx, [provider]) {
         ctx.setEnvironmentKey('music_default_prov', provider);
-        return Return.success();
+        return this.success();
     }
 })

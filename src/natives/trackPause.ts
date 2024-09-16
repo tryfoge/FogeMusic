@@ -9,8 +9,8 @@ export default new NativeFunction({
         const node = ctx.client.music.manager.getNode(ctx.guild.id, true);
         if (node) {
             node.pause();
-            return Return.success('Track paused');
+            return this.success('Track paused');
         }
-        return Return.error('No node found');
+        return this.error('No node found');
     }
 });

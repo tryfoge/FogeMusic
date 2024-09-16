@@ -1,4 +1,4 @@
-import { ArgType, NativeFunction, Return } from "@tryforge/forgescript";
+import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import { Providers, enums } from "naoko-player";
 
 export default new NativeFunction({
@@ -36,6 +36,6 @@ export default new NativeFunction({
         ctx.client.music.options.defaultProvider]) {
 
         const provider = ctx.client.music.manager.providers.get(providerName);
-        return Return.success((await provider.loadTracks(query, loadType)).map(x => x['encodedId'] || x.sourceURL).join(', '));
+        return this.success((await provider.loadTracks(query, loadType)).map(x => x['encodedId'] || x.sourceURL).join(', '));
     }
 });

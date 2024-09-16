@@ -1,4 +1,4 @@
-import { NativeFunction, Return } from "@tryforge/forgescript";
+import { NativeFunction } from "@tryforge/forgescript";
 
 export default new NativeFunction({
     name: "$getSoundsFolder",
@@ -6,6 +6,6 @@ export default new NativeFunction({
     version: 'v0.0.1',
     unwrap: false,
     async execute(ctx) {
-        return Return.success(ctx.client.music.options.soundsFolder);
+        return this.success(ctx.client.music.options.soundsFolder);
     }
 });

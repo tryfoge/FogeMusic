@@ -1,4 +1,4 @@
-import { NativeFunction, Return } from "@tryforge/forgescript";
+import { NativeFunction } from "@tryforge/forgescript";
 
 export default new NativeFunction({
     name: "$playerStop",
@@ -9,6 +9,6 @@ export default new NativeFunction({
         const node = ctx.client.music.manager.getNode(ctx.guild.id, true);
         node.stop();
 
-        return Return.success(true);
+        return this.success(true);
     }
 });

@@ -27,6 +27,6 @@ export default new NativeFunction({
 
         const node = ctx.client.music.manager.getNode(ctx.guild.id, true);
         con.subscribe(node['_player']);
-        return Return.success();
+        return this.success();
     }
 });

@@ -1,4 +1,4 @@
-import { NativeFunction, Return } from "@tryforge/forgescript";
+import { ArgType, NativeFunction, Return } from "@tryforge/forgescript";
 
 const queue = new Map<string, string[]>(); // Map to store track queues by guild ID
 
@@ -12,14 +12,14 @@ export default new NativeFunction({
         {
             name: "action",
             description: "The action to perform on the queue (add, remove, view, clear)",
-            type: "string",
+            type: ArgType.String,
             rest: false,
             required: true
         },
         {
             name: "track encoded id",
             description: "The track's encoded ID to add or remove from the queue",
-            type: "string",
+            type: ArgType.String,
             rest: false,
             required: false
         }
@@ -32,24 +32,24 @@ export default new NativeFunction({
         switch (action) {
             case 'add':
                 if (encodedId) guildQueue.push(encodedId);
-                return Return.success(guildQueue);
+                return this.success(guildQueue);
 
             case 'remove':
                 if (encodedId) {
                     const index = guildQueue.indexOf(encodedId);
                     if (index > -1) guildQueue.splice(index, 1);
                 }
-                return Return.success(guildQueue);
+                return this.success(guildQueue);
 
             case 'view':
-                return Return.success(guildQueue);
+                return this.success(guildQueue);
 
             case 'clear':
                 queue.set(guildId, []);
-                return Return.success(guildQueue);
+                return this.success(guildQueue);
 
             default:
-                return Return.error('Invalid action');
+                return this.error('Invalid action');
         }
     }
 });

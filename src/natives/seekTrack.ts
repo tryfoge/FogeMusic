@@ -1,4 +1,4 @@
-import { NativeFunction, Return } from "@tryforge/forgescript";
+import { ArgType, NativeFunction } from "@tryforge/forgescript";
 
 export default new NativeFunction({
     name: "$seekTrack",
@@ -10,7 +10,7 @@ export default new NativeFunction({
         {
             name: "position",
             description: "The position to seek to (in seconds)",
-            type: "number",
+            type: ArgType.Number,
             rest: false,
             required: true
         }
@@ -19,8 +19,8 @@ export default new NativeFunction({
         const node = ctx.client.music.manager.getNode(ctx.guild.id, true);
         if (node) {
             node.seek(position * 1000); // Position in milliseconds
-            return Return.success('Seek successful');
+            return this.success('Seek successful');
         }
-        return Return.error('No node found');
+        return this.error('No node found');
     }
 });

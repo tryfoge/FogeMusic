@@ -1,4 +1,4 @@
-import { ForgeClient, ForgeExtension, FunctionManager } from "@tryforge/@tryforge/forgescript"; 
+import { ForgeClient, ForgeExtension, FunctionManager } from "@tryforge/forgescript";
 import { Providers, MusicManager } from "naoko-player";
 import path from "node:path";
 import fs from "node:fs";

@@ -1,4 +1,4 @@
-import { ArgType, NativeFunction, Return } from "@tryforge/forgescript";
+import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import { Providers } from "naoko-player";
 
 export default new NativeFunction({
@@ -26,6 +26,6 @@ export default new NativeFunction({
     ],
     async execute(ctx, [encodedId, recordKey]) {
         const track = Providers.Provider.cache.get(encodedId);
-        return Return.success(track[recordKey] ?? 'None');
+        return this.success(track[recordKey] ?? 'None');
     }
 })
