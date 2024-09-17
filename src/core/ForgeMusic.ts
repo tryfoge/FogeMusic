@@ -12,7 +12,7 @@ interface MusicExtensionOptions {
 class ForgeMusic extends ForgeExtension {
     name: string = 'ForgeMusic';
     description: string = 'A standard music extension library for @tryforge/forgescript';
-    version: string = 'v0.0.1';
+    version: string = 'v1.0.0';
 
     public manager = new MusicManager({ providers: [] });
     public options = ForgeMusic.buildBaseOptions();
@@ -23,8 +23,8 @@ class ForgeMusic extends ForgeExtension {
     }
     
     init(client: ForgeClient): void {
-        FunctionManager.load(path.join(__dirname, '..', 'natives'));
-
+        FunctionManager.load(path.join(__dirname + 'natives'));
+        this.load(__dirname + "/natives");
         client['music'] = this;
         if (this.options.addLocalProvider) {
             this.addProvider(new Providers.LocalProvider());
