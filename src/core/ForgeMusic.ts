@@ -23,8 +23,8 @@ class ForgeMusic extends ForgeExtension {
     }
     
     init(client: ForgeClient): void {
-        FunctionManager.load(path.join(__dirname + '/../natives'));
-        this.load(__dirname + "/../natives");
+        FunctionManager.load(path.join(__dirname + '../natives'));
+        this.load(__dirname + "../natives");
         client['music'] = this;
         if (this.options.addLocalProvider) {
             this.addProvider(new Providers.LocalProvider());
