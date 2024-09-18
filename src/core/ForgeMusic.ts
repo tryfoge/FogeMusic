@@ -1,6 +1,6 @@
 import { ForgeClient, ForgeExtension, FunctionManager } from "@tryforge/forgescript";
 import { Providers, MusicManager } from "naoko-player";
-import path from "node:path";
+import path from 'path';
 
 interface MusicExtensionOptions {
     soundsFolder?: string;
@@ -21,10 +21,8 @@ class ForgeMusic extends ForgeExtension {
     }
     
     init(client: ForgeClient): void {
-        this.load(__dirname + "..", "/natives");
-
+        this.load(path.join(__dirname, '..', 'natives'));
         client['music'] = this;
-        
         if (this.options.addLocalProvider) {
             this.addProvider(new Providers.LocalProvider());
         }
