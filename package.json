@@ -1,5 +1,5 @@
 {
-  "name": "forge-music",
+  "name": "@tryforge/forgemusic",
   "version": "1.0.0",
   "description": "A standard music extension library for @tryforge/forgescript",
   "main": "lib/index.js",
