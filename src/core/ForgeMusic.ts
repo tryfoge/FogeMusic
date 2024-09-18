@@ -1,7 +1,6 @@
 import { ForgeClient, ForgeExtension, FunctionManager } from "@tryforge/forgescript";
 import { Providers, MusicManager } from "naoko-player";
 import path from "node:path";
-import fs from "node:fs";
 
 interface MusicExtensionOptions {
     soundsFolder?: string;
@@ -11,20 +10,21 @@ interface MusicExtensionOptions {
 
 class ForgeMusic extends ForgeExtension {
     name: string = 'ForgeMusic';
-    description: string = 'A standard music extension library for @tryforge/forgescript';
+    description: string = 'A standard music extension library for forgescript';
     version: string = 'v1.0.0';
 
     public manager = new MusicManager({ providers: [] });
     public options = ForgeMusic.buildBaseOptions();
-
-    constructor(options: MusicExtensionOptions) {
+    public constructor(options: MusicExtensionOptions) {
         super();
         this.options = { ...this.options, ...options };
     }
     
     init(client: ForgeClient): void {
-        FunctionManager.load(path.join(__dirname, '..', 'natives'));
+        this.load(__dirname + "/natives");
+
         client['music'] = this;
+        
         if (this.options.addLocalProvider) {
             this.addProvider(new Providers.LocalProvider());
         }
@@ -43,7 +43,7 @@ class ForgeMusic extends ForgeExtension {
             soundsFolder: path.join(process.cwd(), 'sounds'),
             defaultProvider: 'local',
             addLocalProvider: true
-        };
+        }
     }
 }
 
@@ -53,4 +53,4 @@ declare module 'discord.js' {
     }
 }
 
-export = ForgeMusic;
+export = ForgeMusic
